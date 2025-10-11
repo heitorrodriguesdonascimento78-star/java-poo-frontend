@@ -7,10 +7,12 @@ import java.awt.*;
 
 public class PessoaForm extends JDialog {
 
-    private JTextField txtNome, txtCpf, txtEmail;
-    private PessoaService pessoaService = new PessoaService();
+    private final JTextField txtNome;
+    private final JTextField txtCpf;
+    private final JTextField txtEmail;
+    private final PessoaService pessoaService = new PessoaService();
     private Pessoa pessoa;
-    private PessoaList parent;
+    private final PessoaList parent;
 
     public PessoaForm(Pessoa pessoa, PessoaList parent) {
         this.pessoa = pessoa;
@@ -53,9 +55,9 @@ public class PessoaForm extends JDialog {
         pessoa.setCpf(txtCpf.getText());
         pessoa.setEmail(txtEmail.getText());
 
-        if (pessoa.getId() == null)
+        if (Pessoa.getId() == -1){
             pessoaService.salvar(pessoa);
-        else
+        } else
             pessoaService.atualizar(pessoa);
 
         parent.atualizarTabela();
