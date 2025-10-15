@@ -12,6 +12,7 @@ public class PessoaService {
 
     public List<Pessoa> listar() {
         ResponseEntity<Pessoa[]> response = restTemplate.getForEntity(BASE_URL, Pessoa[].class);
+        assert response.getBody() != null;
         return Arrays.asList(response.getBody());
     }
 
@@ -19,13 +20,12 @@ public class PessoaService {
         return restTemplate.getForObject(BASE_URL + "/" + id, Pessoa.class);
     }
 
-    public Pessoa salvar(Pessoa pessoa) {
-        ResponseEntity<Pessoa> response = restTemplate.postForEntity(BASE_URL, pessoa, Pessoa.class);
-        return response.getBody();
+    public void salvar(Pessoa pessoa) {
+        restTemplate.postForEntity(BASE_URL, pessoa, Pessoa.class);
     }
 
     public void atualizar(Pessoa pessoa) {
-        restTemplate.put(BASE_URL + "/" + pessoa.getId(), pessoa);
+        restTemplate.put(BASE_URL + "/" + Pessoa.getId(), pessoa);
     }
 
     public void deletar(Long id) {

@@ -12,7 +12,7 @@ public class Pessoa {
     }
 
     public Pessoa(long id, String nome, String cpf, String email, String telefone, String endereco) {
-       this.id = id;
+       Pessoa.id = id;
         this.nome = nome;
         this.cpf = cpf;
         this.email = email;
@@ -45,7 +45,7 @@ public class Pessoa {
     }
 
     public void setId(long id) {
-        this.id = id;
+        Pessoa.id = id;
     }
 
     public void setNome(String nome) {
