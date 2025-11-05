@@ -31,6 +31,6 @@ public class HttpClient {
     private HttpResponse<String> send(HttpRequest request, HttpResponse.BodyHandler<String> stringBodyHandler) {
 
 
-
+        return null;
     }
 }

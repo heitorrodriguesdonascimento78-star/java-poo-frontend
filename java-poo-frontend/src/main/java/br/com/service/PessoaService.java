@@ -7,7 +7,7 @@ import java.util.List;
 
 public class PessoaService {
 
-    private final String BASE_URL = "http://localhost:8080/api/pessoas";
+    private final String BASE_URL = "http://localhost:8080/swagger-ui.html";
     private final RestTemplate restTemplate = new RestTemplate();
 
     public List<Pessoa> listar() {
